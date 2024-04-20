@@ -10,6 +10,7 @@ namespace DLS.ChipCreation
 	{
 		public event System.Action ButtonClicked;
 		public event System.Action ButtonRightClicked;
+		public event System.Action ButtonMiddleClicked;
 		public event System.Action ButtonPressedDown;
 		public event System.Action Selected;
 		public Button Button => _button ??= GetComponent<Button>();
@@ -93,6 +94,11 @@ namespace DLS.ChipCreation
 					ButtonRightClicked?.Invoke();
 				}
 				ButtonPressedDown?.Invoke();
+				if (eventData.button == PointerEventData.InputButton.Middle)
+                {
+					ButtonMiddleClicked?.Invoke();
+                }
+				
 			}
 		}
 

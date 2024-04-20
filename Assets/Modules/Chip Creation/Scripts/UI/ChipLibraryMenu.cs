@@ -161,6 +161,7 @@ namespace DLS.ChipCreation.UI
 			CustomButton chipButton = Instantiate(chipButtonPrefab, parent: contentHolder);
 			chipButton.SetButtonText(description.Name);
 			chipButton.ButtonPressedDown += () => OnButtonSelected(chipButton, description.Name);
+			chipButton.ButtonMiddleClicked += OnToggleStarred;
 		}
 
 		void AddHeading(string text)
